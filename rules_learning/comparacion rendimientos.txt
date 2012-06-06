@@ -1,0 +1,19 @@
+Comparacion de rendimientos entre la antigua 'simplifica-reglas y la nueva 'simplify-ruleset
+
+(time (setq reglas2 (simplifica-reglas reglas1)))
+; cpu time (non-gc) 2,342 msec user, 0 msec system
+; cpu time (gc)     5,517 msec user, 0 msec system
+; cpu time (total)  7,859 msec user, 0 msec system
+; real time  7,906 msec
+; space allocation:
+;  5,485,728 cons cells, 273,907,552 other bytes, 0 static bytes
+
+
+(time (setq reglas2 (simplify-ruleset reglas1)))
+; cpu time (non-gc) 324 msec user, 0 msec system
+; cpu time (gc)     707 msec user, 0 msec system
+; cpu time (total)  1,031 msec user, 0 msec system
+; real time  1,031 msec
+; space allocation:
+;  717,836 cons cells, 35,378,824 other bytes, 0 static bytes
+

@@ -1,0 +1,25 @@
+"Espera en Restaurante"
+Alternativa Si No *
+Bar Si No *
+Viernes Si No *
+Hambrientos Si No *
+Ocupacion Vacio Algunos Lleno *
+Precio  $$$ $$ $ *
+Llueve Si No *
+Reseva Si No *
+Tipo Frances Tailandes Italiano Hamburgueseria *
+EsperaEstimada 0-10 10-30 30-60 >60 *
+Esperaran Si No *
+(x1  Si No No Si Algunos  $$$ No Si Frances        0-10    Si)
+(x2  Si No No Si Lleno    $   No No Tailandes      30-60   No)
+(x3  No Si No No Algunos  $   No No Hamburgueseria 0-10    Si)
+(x4  Si No Si Si Lleno    $   No No Tailandes      10-30   Si)
+(x5  Si No Si No Lleno    $$$ No Si Frances        >60     No)
+(x6  No Si No Si Algunos  $$  Si Si Italiano      0-10    Si)
+(x7  No Si No No Vacio    $   Si No Hamburgueseria 0-10    No)
+(x8  No No No Si Algunos  $$  Si Si Tailandes      0-10    Si)
+(x9  No Si Si No Lleno    $   Si No Hamburgueseria >60     No)
+(x10 Si Si Si Si Lleno    $$$ No Si Italiano      10-30   No)
+(x11 No No No No Vacio    $   No No Tailandes      0-10    No)
+(x12 Si Si Si Si Lleno    $   No No Hamburgueseria 30-60   Si)
+*
