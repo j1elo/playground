@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/GraphEd/Link.qml</file>
+        <file>qml/GraphEd/LinkCanvas.qml</file>
+        <file>qml/GraphEd/main.qml</file>
+        <file>qml/GraphEd/Node.qml</file>
+        <file>qml/GraphEd/Socket.qml</file>
+        <file>qml/GraphEd/SocketContainer.qml</file>
+        <file>qml/GraphEd/Test_createObject.qml</file>
+        <file>qml/GraphEd/test_mapToItem.qml</file>
+        <file>qml/GraphEd/Tool.qml</file>
+        <file>qml/GraphEd/img/add.png</file>
+    </qresource>
+</RCC>
