@@ -6,7 +6,7 @@
         <file>qml/GraphEd/Node.qml</file>
         <file>qml/GraphEd/Socket.qml</file>
         <file>qml/GraphEd/SocketContainer.qml</file>
-        <file>qml/GraphEd/Test_createObject.qml</file>
+        <file>qml/GraphEd/test_createObject.qml</file>
         <file>qml/GraphEd/test_mapToItem.qml</file>
         <file>qml/GraphEd/Tool.qml</file>
         <file>qml/GraphEd/img/add.png</file>

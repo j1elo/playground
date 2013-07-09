@@ -3,30 +3,42 @@ import QtQuick 2.0
 // Note
 // Use qsTr("String") for translatable strings in UI.
 
+/**
+  Basic Graph Editor.
+  This sample program allows you to create "Node" instances, which are movable entities
+  containing arbitrary contents (in this case it's just text), and allowing to connect them
+  by means of "Link"s, which will maintain the connection even while moving the connected Nodes.
+
+  Link connections are actually made between "Socket"s, which are specific placeholders
+  contained inside each Node instance. Every Link is drawn inside a QML Canvas element,
+  maintaining it's connection between two Sockets.
+  */
+
 Item {
     id: window
     width: 600
     height: 600
 
     // Tool items.
-    Column {
+    Row {
         id: toolbar
         spacing: 16
         anchors {
-            top: window.top
-            left: window.left
             bottom: window.bottom
-            topMargin: 50
-            bottomMargin: 50
-            leftMargin: 8
+            left: window.left
+            right: window.right
+            bottomMargin: 25
+            leftMargin: 50
+            rightMargin: 50
         }
 
-// NOTE - WIP - this would allow to add new Nodes. Not ready yet.
-//        Tool {
-//            id: newLinkTool
-//            source: "qrc:/qml/GraphEd/img/add.png"
-//            onClicked: newLink()
-//        }
+        Tool {
+            id: newNodeTool
+            width: 35
+            height: 35
+            source: "qrc:/qml/GraphEd/img/add.png"
+            onClicked: newNode()
+        }
 
         // "Delete Node" tool.
         //        Tool {
@@ -36,60 +48,77 @@ Item {
         //        }
     }
 
-    // ------------ Node
 
-    // Load the Node Component.
-//    Component {
-//        id: nodeComponent
-//        Node { }
-//    }
+    // --------------------------------------------------------------
+    // Node creation
+    // --------------------------------------------------------------
 
-//    // Create an Item element that will be used as a Node container.
-//    Item { id: container }
+    // This Item contains all the created Node instances.
+    Item { id: nodeContainer }
 
-//    // When this Component is loaded,
-//    // call loadNodes() to load nodes
-//    // from the database.
-//    //Component.onCompleted: loadNodes()
+    // Component which will create Node instances.
+    Component {
+        id: nodeComponent
+        Node {
+            Component.onCompleted: parent = nodeContainer
 
-//    // Create Node QML objects.
-//    function newNodeObject(propertyMap) {
-//        // Call createObject() on previously declared
-//        // Node Component; 'container' will be the parent
-//        // of the new object and 'propertyMap' is a map of property-value pairs.
-//        var node = nodeComponent.createObject(container, propertyMap)
-//        if (node == null) {
-//            console.log("ERROR: creating Node object")
+            // Default values.
+            x: 75; y: 25
+            onNodePositionChanged: linkCanvas.canvas.requestPaint()
+            socketsLeft: [
+                Socket { id: socket_left_1; size: 25; onClicked: socketClicked(socket_left_1) }
+                , Socket { id: socket_left_2; size: 25; onClicked: socketClicked(socket_left_2) }
+            ]
+            socketsRight: [
+                Socket { id: socket_right_1; size: 25; onClicked: socketClicked(socket_right_1) }
+                , Socket { id: socket_right_2; size: 25; onClicked: socketClicked(socket_right_2) }
+            ]
+        }
+    }
+
+    // When this Component is loaded, call loadNodes() to load nodes from the database.
+    //Component.onCompleted: loadNodes()
+
+    // Create Node instances.
+    function newNodeObject(propertyMap) {
+        // "nodeContainer": the parent of the new object.
+        // "propertyMap": a map of property-value pairs to be set on the object.
+        var node = nodeComponent.createObject(nodeContainer, propertyMap)
+        if (node == null) {
+            console.log("ERROR: creating Node object")
+        }
+    }
+
+    // Read the Node data from DB.
+//    function loadNodes() {
+//        var nodeItems = NodeDB.readNodes()
+//        for (var i in nodeItems) {
+//            newNodeObject(nodeItems[i])
 //        }
 //    }
 
-//    // Read the Node data from DB.
-//    //    function loadNodes() {
-//    //        var nodeItems = NodeDB.readNodes()
-//    //        for (var i in nodeItems) {
-//    //            newNodeObject(nodeItems[i])
-//    //        }
-//    //    }
+    // Convenience function which creates a default constructed Node.
+    function newNode() {
+        newNodeObject( {} )
+    }
 
-//    // Create Node items, not load from DB.
-//    function newNode() {
-//        // Call the newNodeObject and possibly pass
-//        // a set of arguments.
-//        //newNodeObject( { "markerId": root.markerId } )
-//        newNodeObject( { "x": 75, "y": 100 } )
-//    }
-
-//    // Iterate through the children elements of the
-//    // container item and call destroy() for deleting them.
+    // Iterate through the children elements of the
+    // container item and call destroy() for deleting them.
 //    function clear() {
 //        for(var i = 0; i < container.children.length; ++i) {
 //            container.children[i].destroy()
 //        }
 //    }
 
-    // ------------ Link
 
-    // Load the Component which will create Link instances.
+    // --------------------------------------------------------------
+    // Link creation
+    // --------------------------------------------------------------
+
+    // This Item contains all the created Link instances.
+    Item { id: linkContainer }
+
+    // Component which will create Link instances.
     Component {
         id: linkComponent
         Link {
@@ -97,19 +126,17 @@ Item {
         }
     }
 
-    // Use an Item as a Link container.
-    Item { id: linkContainer }
-
-    // Create Node QML objects.
+    // Create Link instances.
     function newLinkObject(propertyMap) {
-        // 'container' will be the parent of the new object
-        // and 'propertyMap' is a map of property-value pairs.
+        // "linkContainer": the parent of the new object.
+        // "propertyMap": a map of property-value pairs to be set on the object.
         var link = linkComponent.createObject(linkContainer, propertyMap)
         if (link == null) {
             console.log("ERROR: creating Link object")
         }
     }
 
+    // Convenience function which creates a Link between two Sockets.
     function newLink(tailSocket, headSocket) {
         newLinkObject({
                           "tailX": Qt.binding(function(){ return tailSocket.posX }),
@@ -120,9 +147,15 @@ Item {
         linkCanvas.canvas.requestPaint()
     }
 
+
+    // --------------------------------------------------------------
+    // Socket click
+    // --------------------------------------------------------------
+
     property Socket linkTailSocket
 
     function socketClicked(socket) {
+        // Switch the Canvas state between "Normal" and "Follow mouse".
         linkCanvas.enableMouseLink = !linkCanvas.enableMouseLink
 
         if (linkCanvas.enableMouseLink) {
@@ -136,12 +169,14 @@ Item {
     }
 
 
-    // ---- Left Nodes.
+    // --------------------------------------------------------------
+    // Left Nodes
+    // --------------------------------------------------------------
 
     Node {
         id: node_1
         nodeId: "node_1"
-        x: 25; y: 25
+        x: 25; y: 150
         onNodePositionChanged: linkCanvas.canvas.requestPaint()
         socketsRight: [
             Socket { id: node_1_socket_1; size: 25; onClicked: socketClicked(node_1_socket_1) }
@@ -152,7 +187,7 @@ Item {
     Node {
         id: node_2
         nodeId: "node_2"
-        x: 25; y: 150
+        x: 25; y: 275
         onNodePositionChanged: linkCanvas.canvas.requestPaint()
         socketsRight: [
             Socket { id: node_2_socket_1; size: 25; onClicked: socketClicked(node_2_socket_1) }
@@ -163,7 +198,7 @@ Item {
     Node {
         id: node_3
         nodeId: "node_3"
-        x: 25; y: 275
+        x: 25; y: 400
         onNodePositionChanged: linkCanvas.canvas.requestPaint()
         socketsRight: [
             Socket { id: node_3_socket_1; size: 25; onClicked: socketClicked(node_3_socket_1) }
@@ -171,24 +206,26 @@ Item {
         ]
     }
 
+
+    // --------------------------------------------------------------
+    // Right Nodes
+    // --------------------------------------------------------------
+
     Node {
         id: node_4
         nodeId: "node_4"
-        x: 25; y: 400
+        x: 400; y: 150
         onNodePositionChanged: linkCanvas.canvas.requestPaint()
-        socketsRight: [
+        socketsLeft: [
             Socket { id: node_4_socket_1; size: 25; onClicked: socketClicked(node_4_socket_1) }
             , Socket { id: node_4_socket_2; size: 25; onClicked: socketClicked(node_4_socket_2) }
         ]
     }
 
-
-    // ---- Right Nodes.
-
     Node {
         id: node_5
         nodeId: "node_5"
-        x: 400; y: 25
+        x: 400; y: 275
         onNodePositionChanged: linkCanvas.canvas.requestPaint()
         socketsLeft: [
             Socket { id: node_5_socket_1; size: 25; onClicked: socketClicked(node_5_socket_1) }
@@ -199,7 +236,7 @@ Item {
     Node {
         id: node_6
         nodeId: "node_6"
-        x: 400; y: 150
+        x: 400; y: 400
         onNodePositionChanged: linkCanvas.canvas.requestPaint()
         socketsLeft: [
             Socket { id: node_6_socket_1; size: 25; onClicked: socketClicked(node_6_socket_1) }
@@ -207,58 +244,10 @@ Item {
         ]
     }
 
-    Node {
-        id: node_7
-        nodeId: "node_7"
-        x: 400; y: 275
-        onNodePositionChanged: linkCanvas.canvas.requestPaint()
-        socketsLeft: [
-            Socket { id: node_7_socket_1; size: 25; onClicked: socketClicked(node_7_socket_1) }
-            , Socket { id: node_7_socket_2; size: 25; onClicked: socketClicked(node_7_socket_2) }
-        ]
-    }
 
-    Node {
-        id: node_8
-        nodeId: "node_8"
-        x: 400; y: 400
-        onNodePositionChanged: linkCanvas.canvas.requestPaint()
-        socketsLeft: [
-            Socket { id: node_8_socket_1; size: 25; onClicked: socketClicked(node_8_socket_1) }
-            , Socket { id: node_8_socket_2; size: 25; onClicked: socketClicked(node_8_socket_2) }
-        ]
-    }
-
-//    Link {
-//        id: link_1
-//        tailX: node_1.rightSockets[1].posX
-//        tailY: node_1.rightSockets[1].posY
-//        headX: node_4.leftSockets[0].posX
-//        headY: node_4.leftSockets[0].posY
-//        Component.onCompleted: parent = linkContainer
-//    }
-
-//    Link {
-//        id: link_2
-//        tailX: node_2.socketsRight[1].posX
-//        tailY: node_2.socketsRight[1].posY
-//        headX: node_3.socketsLeft[1].posX
-//        headY: node_3.socketsLeft[1].posY
-//        Component.onCompleted: parent = linkContainer
-//    }
-//    Component.onCompleted: {
-//        newLink(node_2.socketsRight[1], node_3.socketsLeft[1])
-//        newLink(node_1.socketsRight[1], node_3.socketsLeft[1])
-//    }
-
-//    Link {
-//        id: link_3
-//        tailX: node_1.rightSockets[0].posX
-//        tailY: node_1.rightSockets[0].posY
-//        headX: node_3.leftSockets[0].posX
-//        headY: node_3.leftSockets[0].posY
-//        Component.onCompleted: parent = linkContainer
-//    }
+    // --------------------------------------------------------------
+    // Canvas for drawing Links
+    // --------------------------------------------------------------
 
     LinkCanvas {
         id: linkCanvas

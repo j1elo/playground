@@ -1,4 +1,3 @@
-//import QtQuick 1.1
 import QtQuick 2.0
 
 Item {
@@ -20,7 +19,7 @@ Item {
         width: 100; height: 100
 //        width: 4 * socketContainerLeft.width
 //        height: socketContainerLeft.height
-        color: "grey"
+        color: "lightgrey"
         border.width: 2
         border.color: "white"
 

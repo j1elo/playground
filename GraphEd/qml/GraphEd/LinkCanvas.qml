@@ -13,13 +13,22 @@ Rectangle {
         headX: canvasMouseArea.mouseX
         headY: canvasMouseArea.mouseY
     }
+
+    /**
+      State variable
+      Used to change between "Normal" and "Follow the mouse" modes:
+      - In "Normal" mode, only the already existing Links are drawn.
+      - In "Follow" mode, the 'mouseLink' property is used to draw an extra Link,
+        from whatever tail coordinates have been set, to it's head coordinates which
+        always follow the mouse cursor position.
+    */
     property bool enableMouseLink: false
 
     Canvas {
         id: linkCanvas
         anchors.fill: parent
         //renderTarget: Canvas.Image  // Render to an in-memory image buffer.
-        //renderTarget: Canvas.FramebufferObject  // Render to an OpenGL frame buffer.
+        renderTarget: Canvas.FramebufferObject  // Render to an OpenGL frame buffer.
 
         onPaint: {
             var ctx = linkCanvas.getContext('2d')
@@ -56,8 +65,6 @@ Rectangle {
         id: canvasMouseArea
         anchors.fill: parent
         hoverEnabled: enableMouseLink
-
-        // MouseArea::onPositionChanged(MouseEvent mouse)
         onPositionChanged: linkCanvas.requestPaint()
     }
 }

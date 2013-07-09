@@ -13,7 +13,7 @@ Rectangle {
     property real posY
 
     // MouseArea::clicked(MouseEvent mouse)
-    signal clicked(var mouse)  // QML bug? "Invalid signal parameter type: MouseEvent"
+    signal clicked(var mouse)
     //onClicked: console.log("[Socket onClicked]")
 
     //onSocketIdChanged: console.log("Socket", "socketId", socketId)
@@ -39,7 +39,6 @@ Rectangle {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: true
-//        onClicked: root.clicked(mouse)
         Component.onCompleted: {
             mouseArea.clicked.connect(root.clicked)
         }
