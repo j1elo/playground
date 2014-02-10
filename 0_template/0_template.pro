@@ -13,7 +13,7 @@ message("Building [$${BUILD_TARGET}] Makefile for [$${TARGET}] on [$${QMAKE_HOST
 TEMPLATE = app
 CONFIG += qt thread
 QT += core gui
-#greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # Build locations
 DESTDIR = .
@@ -36,8 +36,8 @@ unix:QMAKE_DISTCLEAN += -r $$MOC_DIR
     #QMAKE_CXXFLAGS += -Werror
 
     # Disable standard-C assertions
-    QMAKE_CFLAGS_RELEASE    +=  -DNDEBUG
-    QMAKE_CXXFLAGS_RELEASE  +=  -DNDEBUG
+#    QMAKE_CFLAGS_RELEASE    +=  -DNDEBUG
+#    QMAKE_CXXFLAGS_RELEASE  +=  -DNDEBUG
 }
 
 win32-msvc* {
@@ -45,8 +45,8 @@ win32-msvc* {
     DEFINES += _CRT_SECURE_NO_WARNINGS
 
     # Disable standard-C assertions
-    QMAKE_CFLAGS_RELEASE    +=  /DNDEBUG
-    QMAKE_CXXFLAGS_RELEASE  +=  /DNDEBUG
+#    QMAKE_CFLAGS_RELEASE    +=  /DNDEBUG
+#    QMAKE_CXXFLAGS_RELEASE  +=  /DNDEBUG
 }
 
 
@@ -55,19 +55,22 @@ win32-msvc* {
 #          PROJECT FILES
 #====================================================================
 
-INCLUDEPATH += \
-    .
+# ---- Project dependencies ----
 
-DEPENDPATH += \
-    .
+INCLUDEPATH += .
 
-#LIBS += \
+DEPENDPATH += .
+
+#LIBS += -Lsome/path -lsomelib
+
+
+# ---- Project source files ----
 
 HEADERS += \
-    MyClass.h
+    MyWidget.h
 
 SOURCES += main.cpp \
-    MyClass.cpp
+    MyWidget.cpp
 
 #FORMS += MyForm.ui
 #RESOURCES += resources.qrc
