@@ -17,19 +17,27 @@
  *  2004-11-09: Manuel Freire Moran
  */
 
-/*
- * r_exec.c
- *    servidor de la P1 que solamente entiende la peticion
- *	 'r_exec <nombre de programa y argumentos>\n'
+/** @file dserver-r_exec.c
+ * Servidor que entiende peticiones del tipo 'r_exec'.
+ * Servidor de la P1 que solamente entiende la peticion
+ * <pre>
+ *    'r_exec <nombre de programa y argumentos>\n'
  *    a la que responde con
- *   '<errno> <pid_programa>\n'
+ *    '<errno> <pid_programa>\n'
+ * </pre>
  *
  * NOTA:
+ * <pre>
  *    si se ejecuta 'telnet' contra este servidor, hay que tener en cuenta que
  *    telnet envia '\r\n' como final de linea, y no '\n'. Esto hace que muchas
  *    aplicaciones (pej, '/bin/bash') no reconozcan bien
  *    las lineas.
  *    En el caso de 'bash', se puede postponer ';' a todos los comandos.
+ * </pre>
+ *
+ * @author Juan Navarro Moreno
+ * @author Antonio Gonzalez Huete
+ * @date 27-11-2006
  */
 
 #include <stdio.h>

@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
 		if (strcmp(buffer, ":q\n") == 0)
 			break;
 		rc = d_write(fd, buffer, strlen(buffer));
+        (void)rc; // Supress "unused value" warning
 	}
 
 	d_close(fd);

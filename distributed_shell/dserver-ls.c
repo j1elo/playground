@@ -17,9 +17,8 @@
  *  2004-08-09: Manuel Freire Moran
  */
 
-/*
- * ls.c
- *      una funcion para generar listados como ficheros
+/** @file dserver-ls.c
+ * Funcion para generar listados como ficheros.
  */
 
 #include <stdio.h>

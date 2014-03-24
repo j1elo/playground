@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------------
 PROJECT_NAME           = "Shell distribu&iacute;da"
 PROJECT_NUMBER         =
-OUTPUT_DIRECTORY       = ./doc/
+OUTPUT_DIRECTORY       = ./doxygen/
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = Spanish
 USE_WINDOWS_ENCODING   = NO
