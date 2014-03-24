@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Shell distribu&iacute;da: Referencia del Archivo dserver-r_exec.c</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Shell distribu&iacute;da
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Generado por Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">'defines'</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo dserver-r_exec.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Servidor que entiende peticiones del tipo 'r_exec'.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
+<code>#include &lt;pthread.h&gt;</code><br/>
+<code>#include &lt;errno.h&gt;</code><br/>
+<code>#include &lt;fcntl.h&gt;</code><br/>
+<code>#include &lt;dirent.h&gt;</code><br/>
+<code>#include &lt;sys/wait.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="dserver_8h.html">dserver.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="semaphore_8h.html">semaphore.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="sock_8h.html">sock.h</a>&quot;</code><br/>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-r__exec_8c.html#a4b70916bdf28ed7afd94e4fb98230a90">MAX_BUFF</a>&#160;&#160;&#160;1024</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-r__exec_8c.html#a6ea853a00ef7e02fe936bea3344bfc69">MAX_CADENA</a>&#160;&#160;&#160;1024</td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-r__exec_8c.html#a78bedc18b19236353169776e503429a3">manejaSigUsr1</a> (int numSignal)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-r__exec_8c.html#a84a70bde375c13f7ffa0f2a9456a0438">ejecutaHijo</a> (char *cadena, char *direccionLocal, int fd)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-r__exec_8c.html#a445055927ba678c5b5101ef434bd37f2">consigueDireccionLocal</a> (char *direccionLocal, int s)</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Descripción detallada</h2>
+<div class="textblock"><p>Servidor que entiende peticiones del tipo 'r_exec'. </p>
+<p>Servidor de la P1 que solamente entiende la peticion </p>
+<pre>
+    'r_exec &lt;nombre de="" programa="" y="" argumentos&gt;=""&gt;<br/>
+'
+    a la que responde con
+    '&lt;errno&gt; &lt;pid_programa&gt;<br/>
+'
+ </pre><p>NOTA: </p>
+<pre>
+    si se ejecuta 'telnet' contra este servidor, hay que tener en cuenta que
+    telnet envia '<br/>
+' como final de linea, y no '<br/>
+'. Esto hace que muchas
+    aplicaciones (pej, '/bin/bash') no reconozcan bien
+    las lineas.
+    En el caso de 'bash', se puede postponer ';' a todos los comandos.
+ </pre><dl class="author"><dt><b>Autor:</b></dt><dd>Juan Navarro Moreno </dd>
+<dd>
+Antonio Gonzalez Huete </dd></dl>
+<dl class="date"><dt><b>Fecha:</b></dt><dd>27-11-2006 </dd></dl>
+</div><hr/><h2>Documentación de los 'defines'</h2>
+<a class="anchor" id="a4b70916bdf28ed7afd94e4fb98230a90"></a><!-- doxytag: member="dserver&#45;r_exec.c::MAX_BUFF" ref="a4b70916bdf28ed7afd94e4fb98230a90" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dtac_8c.html#a4b70916bdf28ed7afd94e4fb98230a90">MAX_BUFF</a>&#160;&#160;&#160;1024</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6ea853a00ef7e02fe936bea3344bfc69"></a><!-- doxytag: member="dserver&#45;r_exec.c::MAX_CADENA" ref="a6ea853a00ef7e02fe936bea3344bfc69" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver-r__exec_8c.html#a6ea853a00ef7e02fe936bea3344bfc69">MAX_CADENA</a>&#160;&#160;&#160;1024</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Documentación de las funciones</h2>
+<a class="anchor" id="a445055927ba678c5b5101ef434bd37f2"></a><!-- doxytag: member="dserver&#45;r_exec.c::consigueDireccionLocal" ref="a445055927ba678c5b5101ef434bd37f2" args="(char *direccionLocal, int s)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-r__exec_8c.html#a445055927ba678c5b5101ef434bd37f2">consigueDireccionLocal</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>direccionLocal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a84a70bde375c13f7ffa0f2a9456a0438"></a><!-- doxytag: member="dserver&#45;r_exec.c::ejecutaHijo" ref="a84a70bde375c13f7ffa0f2a9456a0438" args="(char *cadena, char *direccionLocal, int fd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-r__exec_8c.html#a84a70bde375c13f7ffa0f2a9456a0438">ejecutaHijo</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cadena</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>direccionLocal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a78bedc18b19236353169776e503429a3"></a><!-- doxytag: member="dserver&#45;r_exec.c::manejaSigUsr1" ref="a78bedc18b19236353169776e503429a3" args="(int numSignal)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="dserver-r__exec_8c.html#a78bedc18b19236353169776e503429a3">manejaSigUsr1</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSignal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Generado el Lunes, 24 de Marzo de 2014 15:08:03 para Shell distribu&iacute;da por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

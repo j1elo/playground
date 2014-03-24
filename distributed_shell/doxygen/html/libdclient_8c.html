@@ -1,0 +1,846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Shell distribu&iacute;da: Referencia del Archivo libdclient.c</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Shell distribu&iacute;da
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Generado por Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">'defines'</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo libdclient.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Primitivas cliente de manejo de ficheros en un sistema distribuido.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
+<code>#include &lt;sys/types.h&gt;</code><br/>
+<code>#include &lt;sys/socket.h&gt;</code><br/>
+<code>#include &lt;sys/timeb.h&gt;</code><br/>
+<code>#include &lt;sys/select.h&gt;</code><br/>
+<code>#include &lt;netinet/in.h&gt;</code><br/>
+<code>#include &lt;time.h&gt;</code><br/>
+<code>#include &lt;ctype.h&gt;</code><br/>
+<code>#include &lt;signal.h&gt;</code><br/>
+<code>#include &lt;errno.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="dserver_8h.html">dserver.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="sock_8h.html">sock.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="libdclient_8h.html">libdclient.h</a>&quot;</code><br/>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a45ba202b05caf39795aeca91b0ae547e">TIMEOUT</a>&#160;&#160;&#160;3000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout de las conexiones, en milisegundos.  <a href="#a45ba202b05caf39795aeca91b0ae547e"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a32fc3ceef45d7fb6ded0ba91815b371b">r_open</a> (char *ip, int port, char *ruta, char *modo)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Abre un fichero localizado en un servidor remoto.  <a href="#a32fc3ceef45d7fb6ded0ba91815b371b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#ade29e2ca202614a183186e7f1cbe8d59">r_ls</a> (char *ip, int port, char *ruta)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Abre un fichero remoto con el resultado de ejecutar el comando "ls" en el servidor.  <a href="#ade29e2ca202614a183186e7f1cbe8d59"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a17ed635bd0e22382fec38ab9c3a01929">r_close</a> (int fd)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Cierra un fichero abierto remotamente.  <a href="#a17ed635bd0e22382fec38ab9c3a01929"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a04eb9348ae527361e5162897cd70837e">r_seek</a> (int fd, long offset, int pos_origen)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Posiciona el puntero de un fichero remoto en el offeset especificado.  <a href="#a04eb9348ae527361e5162897cd70837e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#af7ba94fcf00f44fa6b7a4e8769370748">r_read</a> (int fd, char *outBuffer, int n_bytes)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee de un fichero remoto el numero de bytes solicitado.  <a href="#af7ba94fcf00f44fa6b7a4e8769370748"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a3a67f6e437e5aa58222d7c164af5f636">r_write</a> (int fd, char *buffer, int n_bytes)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe en un fichero remoto el numero de bytes solicitado del buffer especificado.  <a href="#a3a67f6e437e5aa58222d7c164af5f636"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#afb36249131b79d8ddca6e560b578bce8">d_open</a> (char *ip_y_puerto, char *nombre, char *modo)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Abre un fichero localizado en un cluster de servidores remotos.  <a href="#afb36249131b79d8ddca6e560b578bce8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#ac27bf9c04e9f978fd6b7b16c88a5838c">d_ls</a> (char *ip_y_puerto, char *directorio)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Abre un fichero remoto con el resultado de ejecutar el comando "ls" en los servidores del cluster.  <a href="#ac27bf9c04e9f978fd6b7b16c88a5838c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a25bd80e7fe49f86ba322b38067151083">d_close</a> (int fd)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Cierra un fichero abierto remotamente.  <a href="#a25bd80e7fe49f86ba322b38067151083"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a6949fcb0bd45fd9004cd916e736fd6f2">d_seek</a> (int fd, long offset, int whence)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Posiciona el puntero de un fichero remoto en el offeset especificado.  <a href="#a6949fcb0bd45fd9004cd916e736fd6f2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a6ad11a8afc9dd7cc5e3c65634c1484fa">d_read</a> (int fd, char *buffer, int number)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee de un fichero remoto el numero de bytes solicitado.  <a href="#a6ad11a8afc9dd7cc5e3c65634c1484fa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#ac456793f3f8a512fb3435b1b410a0f5e">d_write</a> (int fd, char *buffer, int number)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe en un fichero remoto el numero de bytes solicitado del buffer especificado.  <a href="#ac456793f3f8a512fb3435b1b410a0f5e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a6045dd50c468e699e5a0de5637faaef1">d_find</a> (char *nombre_fichero, char *ip_y_puerto, char *resultado)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un fichero en el cluster de servidores.  <a href="#a6045dd50c468e699e5a0de5637faaef1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a9ea773d68d52e1e95efaba75b47bcc03">d_exec</a> (char *ip_y_puerto, char *nombre, char *argv[])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Lanza el ejecutable en la maquina destino.  <a href="#a9ea773d68d52e1e95efaba75b47bcc03"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a6cd2da16a13723c21c1cc459d1022431">d_register</a> (char *ip_y_puerto, char *ip_y_puerto_a_registrar, char **direcciones_obtenidas)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un nuevo servidor en el cluster de servidores.  <a href="#a6cd2da16a13723c21c1cc459d1022431"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#a48379f2c480b432aa074de27f92629b8">d_unregister</a> (char *ip_y_puerto, char *ip_y_puerto_a_eliminar)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un servidor del cluster de servidores.  <a href="#a48379f2c480b432aa074de27f92629b8"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libdclient_8c.html#acfe6ab5d0e72532770c75e855c74910a">r_errno</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor de errno remoto, devuelto por el servidor.  <a href="#acfe6ab5d0e72532770c75e855c74910a"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Descripción detallada</h2>
+<div class="textblock"><p>Primitivas cliente de manejo de ficheros en un sistema distribuido. </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Juan Navarro Moreno </dd>
+<dd>
+Antonio Gonzalez Huete </dd></dl>
+<dl class="date"><dt><b>Fecha:</b></dt><dd>10-12-2006 </dd></dl>
+</div><hr/><h2>Documentación de los 'defines'</h2>
+<a class="anchor" id="a45ba202b05caf39795aeca91b0ae547e"></a><!-- doxytag: member="libdclient.c::TIMEOUT" ref="a45ba202b05caf39795aeca91b0ae547e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="libdclient_8c.html#a45ba202b05caf39795aeca91b0ae547e">TIMEOUT</a>&#160;&#160;&#160;3000</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Timeout de las conexiones, en milisegundos. </p>
+
+</div>
+</div>
+<hr/><h2>Documentación de las funciones</h2>
+<a class="anchor" id="a25bd80e7fe49f86ba322b38067151083"></a><!-- doxytag: member="libdclient.c::d_close" ref="a25bd80e7fe49f86ba322b38067151083" args="(int fd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a25bd80e7fe49f86ba322b38067151083">d_close</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Cierra un fichero abierto remotamente. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ea773d68d52e1e95efaba75b47bcc03"></a><!-- doxytag: member="libdclient.c::d_exec" ref="a9ea773d68d52e1e95efaba75b47bcc03" args="(char *ip_y_puerto, char *nombre, char *argv[])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a9ea773d68d52e1e95efaba75b47bcc03">d_exec</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nombre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Lanza el ejecutable en la maquina destino. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip_y_puerto</td><td>direccion ip y puerto del servidor en formato "ip:puerto". </td></tr>
+    <tr><td class="paramname">nombre</td><td>nombre del fichero que se quiere ejecutar. </td></tr>
+    <tr><td class="paramname">argv[]</td><td>parametros de la orden a ejecutar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>si todo va bien, la funcion nunca llega a retornar. En caso contrario retorna -1. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6045dd50c468e699e5a0de5637faaef1"></a><!-- doxytag: member="libdclient.c::d_find" ref="a6045dd50c468e699e5a0de5637faaef1" args="(char *nombre_fichero, char *ip_y_puerto, char *resultado)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a6045dd50c468e699e5a0de5637faaef1">d_find</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nombre_fichero</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>resultado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Busca un fichero en el cluster de servidores. </p>
+<p>Devuelve la ip y el puerto de un dserver del cluster donde existe el fichero solicitado. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">nombre_fichero</td><td>nombre del fichero a buscar. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ip_y_puerto</td><td>direccion ip y puerto del servidor en formato "ip:puerto". </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">resultado</td><td>la cadena "ip:puerto" de un servidor que tiene el fichero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac27bf9c04e9f978fd6b7b16c88a5838c"></a><!-- doxytag: member="libdclient.c::d_ls" ref="ac27bf9c04e9f978fd6b7b16c88a5838c" args="(char *ip_y_puerto, char *directorio)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#ac27bf9c04e9f978fd6b7b16c88a5838c">d_ls</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>directorio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Abre un fichero remoto con el resultado de ejecutar el comando "ls" en los servidores del cluster. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip_y_puerto</td><td>direccion ip y puerto de un servidor en formato "ip:puerto". </td></tr>
+    <tr><td class="paramname">directorio</td><td>ruta o nombre del fichero que se quiere listar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>descriptor para manejar el fichero remoto, -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afb36249131b79d8ddca6e560b578bce8"></a><!-- doxytag: member="libdclient.c::d_open" ref="afb36249131b79d8ddca6e560b578bce8" args="(char *ip_y_puerto, char *nombre, char *modo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#afb36249131b79d8ddca6e560b578bce8">d_open</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nombre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>modo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Abre un fichero localizado en un cluster de servidores remotos. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip_y_puerto</td><td>direccion ip y puerto de un servidor en formato "ip:puerto". </td></tr>
+    <tr><td class="paramname">nombre</td><td>ruta o nombre del fichero que se quiere abrir. </td></tr>
+    <tr><td class="paramname">modo</td><td>modo de apertura del fichero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>descriptor para manejar el fichero remoto, -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6ad11a8afc9dd7cc5e3c65634c1484fa"></a><!-- doxytag: member="libdclient.c::d_read" ref="a6ad11a8afc9dd7cc5e3c65634c1484fa" args="(int fd, char *buffer, int number)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a6ad11a8afc9dd7cc5e3c65634c1484fa">d_read</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Lee de un fichero remoto el numero de bytes solicitado. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">number</td><td>numero maximo de bytes a leer del fichero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>buffer donde almacenar los datos leidos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>numero de bytes leidos, -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6cd2da16a13723c21c1cc459d1022431"></a><!-- doxytag: member="libdclient.c::d_register" ref="a6cd2da16a13723c21c1cc459d1022431" args="(char *ip_y_puerto, char *ip_y_puerto_a_registrar, char **direcciones_obtenidas)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a6cd2da16a13723c21c1cc459d1022431">d_register</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto_a_registrar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>direcciones_obtenidas</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Registra un nuevo servidor en el cluster de servidores. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">ip_y_puerto</td><td>ip y puerto de un servidor del cluster, en formato "ip:puerto". </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ip_y_puerto_a_registrar</td><td>ip y puerto de la maquina a registrar en el cluster, en formato "ip:puerto" . </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">direcciones_obtenidas</td><td>direcciones de los servidores que forman el cluster, en formato "ip:puerto", excluyendo los propios de la maquina a registrar en el cluster. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6949fcb0bd45fd9004cd916e736fd6f2"></a><!-- doxytag: member="libdclient.c::d_seek" ref="a6949fcb0bd45fd9004cd916e736fd6f2" args="(int fd, long offset, int whence)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long <a class="el" href="libdclient_8h.html#a6949fcb0bd45fd9004cd916e736fd6f2">d_seek</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>whence</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Posiciona el puntero de un fichero remoto en el offeset especificado. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+    <tr><td class="paramname">offset</td><td>offset que aplicar a la posicion de referencia en el fichero. </td></tr>
+    <tr><td class="paramname">whence</td><td>posicion de referencia: <ul>
+<li>SEEK_SET para el principio del fichero. </li>
+<li>SEEK_CUR para la posicion actual. </li>
+<li>SEEK_END para el final del fichero. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>posicion actual en el fichero (puede no ser la pedida, en caso de error), -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a48379f2c480b432aa074de27f92629b8"></a><!-- doxytag: member="libdclient.c::d_unregister" ref="a48379f2c480b432aa074de27f92629b8" args="(char *ip_y_puerto, char *ip_y_puerto_a_eliminar)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a48379f2c480b432aa074de27f92629b8">d_unregister</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_y_puerto_a_eliminar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Elimina un servidor del cluster de servidores. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip_y_puerto</td><td>ip y puerto de un servidor del cluster, en formato "ip:puerto". </td></tr>
+    <tr><td class="paramname">ip_y_puerto_a_eliminar</td><td>ip y puerto de la maquina a eliminar del cluster, en formato "ip:puerto". </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac456793f3f8a512fb3435b1b410a0f5e"></a><!-- doxytag: member="libdclient.c::d_write" ref="ac456793f3f8a512fb3435b1b410a0f5e" args="(int fd, char *buffer, int number)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#ac456793f3f8a512fb3435b1b410a0f5e">d_write</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Escribe en un fichero remoto el numero de bytes solicitado del buffer especificado. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+    <tr><td class="paramname">buffer</td><td>buffer donde se encuentran los datos a escribir. </td></tr>
+    <tr><td class="paramname">number</td><td>numero de bytes a escribir. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>numero de bytes escritos, -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a17ed635bd0e22382fec38ab9c3a01929"></a><!-- doxytag: member="libdclient.c::r_close" ref="a17ed635bd0e22382fec38ab9c3a01929" args="(int fd)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a17ed635bd0e22382fec38ab9c3a01929">r_close</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Cierra un fichero abierto remotamente. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ade29e2ca202614a183186e7f1cbe8d59"></a><!-- doxytag: member="libdclient.c::r_ls" ref="ade29e2ca202614a183186e7f1cbe8d59" args="(char *ip, int port, char *ruta)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a46a645600383f734ecc19654b6c67138">r_ls</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ruta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Abre un fichero remoto con el resultado de ejecutar el comando "ls" en el servidor. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>direccion ip del servidor. </td></tr>
+    <tr><td class="paramname">port</td><td>puerto donde esta escuchando el servidor de ficheros. </td></tr>
+    <tr><td class="paramname">ruta</td><td>ruta o nombre del fichero que se quiere listar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>descriptor para manejar el fichero remoto, -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a32fc3ceef45d7fb6ded0ba91815b371b"></a><!-- doxytag: member="libdclient.c::r_open" ref="a32fc3ceef45d7fb6ded0ba91815b371b" args="(char *ip, int port, char *ruta, char *modo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a292dc1cf25c9b8193226824693c0ffab">r_open</a> </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ruta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>modo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Abre un fichero localizado en un servidor remoto. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>direccion ip del servidor. </td></tr>
+    <tr><td class="paramname">port</td><td>puerto donde esta escuchando el servidor de ficheros. </td></tr>
+    <tr><td class="paramname">ruta</td><td>ruta o nombre del fichero que se quiere abrir. </td></tr>
+    <tr><td class="paramname">modo</td><td>modo de apertura del fichero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>descriptor para manejar el fichero remoto, -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af7ba94fcf00f44fa6b7a4e8769370748"></a><!-- doxytag: member="libdclient.c::r_read" ref="af7ba94fcf00f44fa6b7a4e8769370748" args="(int fd, char *outBuffer, int n_bytes)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#aeedbeb5abd351be0cafe6f51097b1264">r_read</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>outBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Lee de un fichero remoto el numero de bytes solicitado. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">n_bytes</td><td>numero maximo de bytes a leer del fichero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">outBuffer</td><td>buffer donde almacenar los datos leidos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>numero de bytes leidos, -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a04eb9348ae527361e5162897cd70837e"></a><!-- doxytag: member="libdclient.c::r_seek" ref="a04eb9348ae527361e5162897cd70837e" args="(int fd, long offset, int pos_origen)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long <a class="el" href="libdclient_8h.html#a04eb9348ae527361e5162897cd70837e">r_seek</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_origen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Posiciona el puntero de un fichero remoto en el offeset especificado. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+    <tr><td class="paramname">offset</td><td>offset que aplicar a la posicion de referencia en el fichero. </td></tr>
+    <tr><td class="paramname">pos_origen</td><td>posicion de referencia: <ul>
+<li>SEEK_SET para el principio del fichero. </li>
+<li>SEEK_CUR para la posicion actual. </li>
+<li>SEEK_END para el final del fichero. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>posicion actual en el fichero (puede no ser la pedida, en caso de error), -1 si error. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3a67f6e437e5aa58222d7c164af5f636"></a><!-- doxytag: member="libdclient.c::r_write" ref="a3a67f6e437e5aa58222d7c164af5f636" args="(int fd, char *buffer, int n_bytes)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8h.html#a3a67f6e437e5aa58222d7c164af5f636">r_write</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Escribe en un fichero remoto el numero de bytes solicitado del buffer especificado. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>descriptor del fichero remoto (realmente es el descriptor de un socket). </td></tr>
+    <tr><td class="paramname">buffer</td><td>buffer donde se encuentran los datos a escribir. </td></tr>
+    <tr><td class="paramname">n_bytes</td><td>numero de bytes a escribir. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>numero de bytes escritos, -1 si error. </dd></dl>
+
+</div>
+</div>
+<hr/><h2>Documentación de las variables</h2>
+<a class="anchor" id="acfe6ab5d0e72532770c75e855c74910a"></a><!-- doxytag: member="libdclient.c::r_errno" ref="acfe6ab5d0e72532770c75e855c74910a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="libdclient_8c.html#acfe6ab5d0e72532770c75e855c74910a">r_errno</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Valor de errno remoto, devuelto por el servidor. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Generado el Lunes, 24 de Marzo de 2014 15:08:03 para Shell distribu&iacute;da por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

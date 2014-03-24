@@ -1,0 +1,927 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Shell distribu&iacute;da: Referencia del Archivo dserver-petic.c</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Shell distribu&iacute;da
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Generado por Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#define-members">'defines'</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo dserver-petic.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Modulo de atencion a peticiones del servidor distribuido.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
+<code>#include &lt;sys/types.h&gt;</code><br/>
+<code>#include &lt;sys/stat.h&gt;</code><br/>
+<code>#include &lt;sys/wait.h&gt;</code><br/>
+<code>#include &lt;pthread.h&gt;</code><br/>
+<code>#include &lt;signal.h&gt;</code><br/>
+<code>#include &lt;errno.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="dserver_8h.html">dserver.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="sock_8h.html">sock.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="semaphore_8h.html">semaphore.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="dserver-petic_8h.html">dserver-petic.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="libdclient_8h.html">libdclient.h</a>&quot;</code><br/>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfComClusterArgs__t.html">fComClusterArgs_t</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura de argumentos para la funcion <a class="el" href="dserver-petic_8c.html#afd302572c4da949221e1b8957a1a6c5a" title="Envia una serie de comandos a un servidor del cluster.">fComCluster()</a>.  <a href="structfComClusterArgs__t.html#details">Más...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a72de35c8abf6601727716e1f6e193293">SIN_FICH</a>&#160;&#160;&#160;0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#acfec3b4a9662a3f53b5f939b16410072">CON_FICH</a>&#160;&#160;&#160;1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a0f47050799b9308fe388baf6478e6fc9">LECTURA</a>&#160;&#160;&#160;0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a44ef5333dbf032bbf9fbd2b381f7e6c3">ESCRITURA</a>&#160;&#160;&#160;1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a1cc31293ff7884c74d095c799a133a60">MAXCOM</a>&#160;&#160;&#160;5</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximo numero de comandos a ejecutar con <a class="el" href="dserver-petic_8c.html#afd302572c4da949221e1b8957a1a6c5a" title="Envia una serie de comandos a un servidor del cluster.">fComCluster()</a>.  <a href="#a1cc31293ff7884c74d095c799a133a60"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a45ba202b05caf39795aeca91b0ae547e">TIMEOUT</a>&#160;&#160;&#160;3000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout de las conexiones, en milisegundos.  <a href="#a45ba202b05caf39795aeca91b0ae547e"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a6f30664a67edce0329288b0d2b1c8c25">peticiones</a> (int sockCliente, void *estado)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Funcion de atencion de peticiones en el servidor.  <a href="#a6f30664a67edce0329288b0d2b1c8c25"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a02e9ea0617814954bbe43f6b6d13fb66">petic_ropen</a> (int sockCliente, char *path, char *mode, unsigned int numCopia, int *modoAcceso)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Abre el fichero solicitado.  <a href="#a02e9ea0617814954bbe43f6b6d13fb66"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#ac16583598079a7754d5b13aa945358c5">petic_rls</a> (int sockCliente, char *path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un listado con los contenidos de un directorio.  <a href="#ac16583598079a7754d5b13aa945358c5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#af29a112570b8af0d8e39384af6124783">petic_rclose</a> (int sockCliente, FILE *pFich, char *nombreFich, unsigned int numCopia)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Cierra el fichero solicitado.  <a href="#af29a112570b8af0d8e39384af6124783"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a8961c8233ab6b06e8d912e780abde572">petic_rseek</a> (int sockCliente, FILE *pFich, char *argOffset, char *argOrigen)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el indicador de posicion de fichero.  <a href="#a8961c8233ab6b06e8d912e780abde572"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a62c66442baadc593155d645b5f487035">petic_rread</a> (int sockCliente, FILE *pFich, char *argLong)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee y envia los contenidos del fichero abierto.  <a href="#a62c66442baadc593155d645b5f487035"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#adeb794bfa9b101da54747d54c8627af8">petic_rwrite</a> (int sockCliente, FILE *pFich, char *argLong, void *datos, int modoAcceso)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe datos en el fichero.  <a href="#adeb794bfa9b101da54747d54c8627af8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a33686733733056a4c9f667c18d9c0a00">petic_rexec</a> (int sockCliente, char *direccionLocal, char *comando)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Lanza el ejecutable en la maquina destino.  <a href="#a33686733733056a4c9f667c18d9c0a00"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a18655dbf1fe8d3867f0a118f59ec5170">petic_dfind</a> (int sockCliente, char *path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un fichero en el cluster de servidores.  <a href="#a18655dbf1fe8d3867f0a118f59ec5170"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a3b68eab7b80f75f027741d7181fc9d57">petic_dls</a> (int sockCliente, char *path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un listado con los contenidos de un directorio.  <a href="#a3b68eab7b80f75f027741d7181fc9d57"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a22a06ccf743cb4f2efd215e646345d3a">petic_dregister</a> (int sockCliente, char *serv)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifica a todas las maquinas del cluster de que hay un nuevo miembro.  <a href="#a22a06ccf743cb4f2efd215e646345d3a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#abf4d24ba9a32a666fce400b2c1e13049">petic_dunregister</a> (int sockCliente, char *serv)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un servidor del cluster.  <a href="#abf4d24ba9a32a666fce400b2c1e13049"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a6b0ebefcf88c37911cf8a6acf76d116d">petic_nuevalista</a> (int sockCliente, char *numServers, char *nbIPs, char *nbPuertos, char *datos)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza la lista de servidores registrados en el cluster.  <a href="#a6b0ebefcf88c37911cf8a6acf76d116d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#afd302572c4da949221e1b8957a1a6c5a">fComCluster</a> (void *argumentos)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia una serie de comandos a un servidor del cluster.  <a href="#afd302572c4da949221e1b8957a1a6c5a"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a2efaa778ba62acc48f7b521c80a92a90">gNumServers</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero de entradas almacenadas en los arrays de informacion del cluster.  <a href="#a2efaa778ba62acc48f7b521c80a92a90"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#af5712f0e4f656c3a9e85c243534981d7">gClusterIPs</a> [][<a class="el" href="dserver_8h.html#a732c15dfdbe1b1ab385fab1e8cdb5b07">MAX_LEN_DIR</a>]</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Direcciones IP de los servidores pertenecientes al cluster.  <a href="#af5712f0e4f656c3a9e85c243534981d7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a848dda2bcb7bf96bdaa18d45bb2f9723">gClusterPuertos</a> []</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Puertos de escucha de los servidores pertenecientes al cluster.  <a href="#a848dda2bcb7bf96bdaa18d45bb2f9723"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#aff76d1f940ce6a4ee40298c693eb7563">gNumCopia</a> = 0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Cuenta el numero de aperturas de un mismo fichero.  <a href="#aff76d1f940ce6a4ee40298c693eb7563"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSemaphore.html">Semaphore</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver-petic_8c.html#a6146557e9c5bb3f2cc07d6dfc09f60d2">gSemGlobales</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Controla el acceso a variables globales.  <a href="#a6146557e9c5bb3f2cc07d6dfc09f60d2"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Descripción detallada</h2>
+<div class="textblock"><p>Modulo de atencion a peticiones del servidor distribuido. </p>
+<p>Este fichero implementa las funciones que se van a ejecutar en un hilo distinto por cada peticion recibida en el servidor.</p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Juan Navarro Moreno </dd>
+<dd>
+Antonio Gonzalez Huete </dd></dl>
+<dl class="date"><dt><b>Fecha:</b></dt><dd>27-11-2006 </dd></dl>
+</div><hr/><h2>Documentación de los 'defines'</h2>
+<a class="anchor" id="acfec3b4a9662a3f53b5f939b16410072"></a><!-- doxytag: member="dserver&#45;petic.c::CON_FICH" ref="acfec3b4a9662a3f53b5f939b16410072" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver-petic_8c.html#acfec3b4a9662a3f53b5f939b16410072">CON_FICH</a>&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a44ef5333dbf032bbf9fbd2b381f7e6c3"></a><!-- doxytag: member="dserver&#45;petic.c::ESCRITURA" ref="a44ef5333dbf032bbf9fbd2b381f7e6c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver-petic_8c.html#a44ef5333dbf032bbf9fbd2b381f7e6c3">ESCRITURA</a>&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0f47050799b9308fe388baf6478e6fc9"></a><!-- doxytag: member="dserver&#45;petic.c::LECTURA" ref="a0f47050799b9308fe388baf6478e6fc9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver-petic_8c.html#a0f47050799b9308fe388baf6478e6fc9">LECTURA</a>&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1cc31293ff7884c74d095c799a133a60"></a><!-- doxytag: member="dserver&#45;petic.c::MAXCOM" ref="a1cc31293ff7884c74d095c799a133a60" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver-petic_8c.html#a1cc31293ff7884c74d095c799a133a60">MAXCOM</a>&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Maximo numero de comandos a ejecutar con <a class="el" href="dserver-petic_8c.html#afd302572c4da949221e1b8957a1a6c5a" title="Envia una serie de comandos a un servidor del cluster.">fComCluster()</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a72de35c8abf6601727716e1f6e193293"></a><!-- doxytag: member="dserver&#45;petic.c::SIN_FICH" ref="a72de35c8abf6601727716e1f6e193293" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver-petic_8c.html#a72de35c8abf6601727716e1f6e193293">SIN_FICH</a>&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a45ba202b05caf39795aeca91b0ae547e"></a><!-- doxytag: member="dserver&#45;petic.c::TIMEOUT" ref="a45ba202b05caf39795aeca91b0ae547e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="libdclient_8c.html#a45ba202b05caf39795aeca91b0ae547e">TIMEOUT</a>&#160;&#160;&#160;3000</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Timeout de las conexiones, en milisegundos. </p>
+
+</div>
+</div>
+<hr/><h2>Documentación de las funciones</h2>
+<a class="anchor" id="afd302572c4da949221e1b8957a1a6c5a"></a><!-- doxytag: member="dserver&#45;petic.c::fComCluster" ref="afd302572c4da949221e1b8957a1a6c5a" args="(void *argumentos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* <a class="el" href="dserver-petic_8h.html#afd302572c4da949221e1b8957a1a6c5a">fComCluster</a> </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>argumentos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Envia una serie de comandos a un servidor del cluster. </p>
+<p>La idea de esta funcion es ser ejecutada en paralelo usando varios hilos de ejecucion, y poder mandar asi un conjunto de comandos a todos los servidores del cluster simultaneamente. </p>
+
+</div>
+</div>
+<a class="anchor" id="a18655dbf1fe8d3867f0a118f59ec5170"></a><!-- doxytag: member="dserver&#45;petic.c::petic_dfind" ref="a18655dbf1fe8d3867f0a118f59ec5170" args="(int sockCliente, char *path)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#a18655dbf1fe8d3867f0a118f59ec5170">petic_dfind</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Busca un fichero en el cluster de servidores. </p>
+<p>Devuelve la ip y el puerto de un dserver del cluster donde existe el fichero solicitado. </p>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt; &lt;ip:puerto&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3b68eab7b80f75f027741d7181fc9d57"></a><!-- doxytag: member="dserver&#45;petic.c::petic_dls" ref="a3b68eab7b80f75f027741d7181fc9d57" args="(int sockCliente, char *path)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* <a class="el" href="dserver-petic_8h.html#a3b68eab7b80f75f027741d7181fc9d57">petic_dls</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Crea un listado con los contenidos de un directorio. </p>
+<p>Similar a <a class="el" href="dserver-petic_8c.html#ac16583598079a7754d5b13aa945358c5" title="Crea un listado con los contenidos de un directorio.">petic_rls()</a>, pero realiza sucesivos <a class="el" href="dserver-petic_8c.html#ac16583598079a7754d5b13aa945358c5" title="Crea un listado con los contenidos de un directorio.">petic_rls()</a> sobre todos los servidores que componen el cluster. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramname">path</td><td>ruta al directorio que se debe listar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>el puntero FILE* al fichero abierto. NULL si error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a22a06ccf743cb4f2efd215e646345d3a"></a><!-- doxytag: member="dserver&#45;petic.c::petic_dregister" ref="a22a06ccf743cb4f2efd215e646345d3a" args="(int sockCliente, char *serv)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#a22a06ccf743cb4f2efd215e646345d3a">petic_dregister</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>serv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Notifica a todas las maquinas del cluster de que hay un nuevo miembro. </p>
+<p>El nuevo dserver es el que tiene la IP y puerto suministrados como argumento. Les envia a todos los servidores, en paralelo (usando un hilo de ejecucion para cada uno), una nueva lista de servidores registrados en el cluster. Para ello emplea la funcion <a class="el" href="dserver-petic_8c.html#afd302572c4da949221e1b8957a1a6c5a" title="Envia una serie de comandos a un servidor del cluster.">fComCluster()</a> y el comando "nueva_lista". </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramname">serv</td><td>servidor nuevo en el cluster. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: servidores registrados (sin incluir al nuevo) y sus IPs y puertos: "&lt;errno&gt; &lt;N&gt; &lt;ip1:puerto1&gt; ... &lt;ipN:puertoN&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abf4d24ba9a32a666fce400b2c1e13049"></a><!-- doxytag: member="dserver&#45;petic.c::petic_dunregister" ref="abf4d24ba9a32a666fce400b2c1e13049" args="(int sockCliente, char *serv)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#abf4d24ba9a32a666fce400b2c1e13049">petic_dunregister</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>serv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Elimina un servidor del cluster. </p>
+<p>Elimina del cluster el servidor con la IP y puerto especificados. Lo contrario a <a class="el" href="dserver-petic_8c.html#a22a06ccf743cb4f2efd215e646345d3a" title="Notifica a todas las maquinas del cluster de que hay un nuevo miembro.">petic_dregister()</a>. Les envia a todos los servidores, en paralelo (usando un hilo de ejecucion para cada uno), una nueva lista de servidores registrados en el cluster. Para ello emplea la funcion <a class="el" href="dserver-petic_8c.html#afd302572c4da949221e1b8957a1a6c5a" title="Envia una serie de comandos a un servidor del cluster.">fComCluster()</a> y el comando "nueva_lista". </p>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6b0ebefcf88c37911cf8a6acf76d116d"></a><!-- doxytag: member="dserver&#45;petic.c::petic_nuevalista" ref="a6b0ebefcf88c37911cf8a6acf76d116d" args="(int sockCliente, char *numServers, char *nbIPs, char *nbPuertos, char *datos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#a6b0ebefcf88c37911cf8a6acf76d116d">petic_nuevalista</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>numServers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nbIPs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nbPuertos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>datos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Actualiza la lista de servidores registrados en el cluster. </p>
+<p>Sustituye la lista local de servidores registrados en el cluster, con la nueva lista recibida como argumento. </p>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af29a112570b8af0d8e39384af6124783"></a><!-- doxytag: member="dserver&#45;petic.c::petic_rclose" ref="af29a112570b8af0d8e39384af6124783" args="(int sockCliente, FILE *pFich, char *nombreFich, unsigned int numCopia)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#af29a112570b8af0d8e39384af6124783">petic_rclose</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>pFich</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nombreFich</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>numCopia</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Cierra el fichero solicitado. </p>
+<p>En caso de ser un fichero creado en un <a class="el" href="dserver-petic_8c.html#a02e9ea0617814954bbe43f6b6d13fb66" title="Abre el fichero solicitado.">petic_ropen()</a> anterior, nombreFich debe contener un nombre de fichero valido, y se procede a sustituirlo por el fichero pFich.numCopia y cerrar este ultimo. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramname">pFich</td><td>puntero al fichero "copia". </td></tr>
+    <tr><td class="paramname">nombreFich</td><td>nombre del fichero original. </td></tr>
+    <tr><td class="paramname">numCopia</td><td>numero de copia correspondiente al fichero "copia". </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a33686733733056a4c9f667c18d9c0a00"></a><!-- doxytag: member="dserver&#45;petic.c::petic_rexec" ref="a33686733733056a4c9f667c18d9c0a00" args="(int sockCliente, char *direccionLocal, char *comando)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#a77ad4c1d64af0a22c4288c9fb1d034f0">petic_rexec</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>direccionLocal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>comando</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Lanza el ejecutable en la maquina destino. </p>
+<p>Una vez devuelto el valor de retorno, el socket usado se convierte en la entrada y salida del ejecutable. </p>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>Respuesta al cliente: "&lt;errno&gt; &lt;pid_hijo&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac16583598079a7754d5b13aa945358c5"></a><!-- doxytag: member="dserver&#45;petic.c::petic_rls" ref="ac16583598079a7754d5b13aa945358c5" args="(int sockCliente, char *path)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* <a class="el" href="dserver-petic_8h.html#ac16583598079a7754d5b13aa945358c5">petic_rls</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Crea un listado con los contenidos de un directorio. </p>
+<p>Abre un nuevo fichero temporal para guardar el resultado de hacer "ls &lt;path&gt;". El nombre del fichero temporal lo elige el sistema, y este sera borrado cuando se le aplique un fclose(). </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramname">path</td><td>ruta al directorio que se debe listar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>el puntero FILE* al fichero abierto. NULL si error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a02e9ea0617814954bbe43f6b6d13fb66"></a><!-- doxytag: member="dserver&#45;petic.c::petic_ropen" ref="a02e9ea0617814954bbe43f6b6d13fb66" args="(int sockCliente, char *path, char *mode, unsigned int numCopia, int *modoAcceso)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* <a class="el" href="dserver-petic_8h.html#a02e9ea0617814954bbe43f6b6d13fb66">petic_ropen</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>numCopia</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>modoAcceso</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Abre el fichero solicitado. </p>
+<p>Crea una copia del fichero y abre la copia; de este modo se logra mantener la semantica de sesion, por la que cada hilo tiene acceso a sus propios cambios del fichero, pero no a los de los demas hilos. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">path</td><td>ruta al fichero que se debe abrir. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">mode</td><td>modo de apertura del fichero. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">numCopia</td><td>numero de copia que le corresponde al fichero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">modoAcceso</td><td>sale el modo de acceso del fichero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>el puntero FILE* al fichero abierto. NULL si error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a62c66442baadc593155d645b5f487035"></a><!-- doxytag: member="dserver&#45;petic.c::petic_rread" ref="a62c66442baadc593155d645b5f487035" args="(int sockCliente, FILE *pFich, char *argLong)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#a62c66442baadc593155d645b5f487035">petic_rread</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>pFich</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argLong</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Lee y envia los contenidos del fichero abierto. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramname">pFich</td><td>puntero al fichero. </td></tr>
+    <tr><td class="paramname">argLong</td><td>argumento indicando el numero de bytes a leer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt; &lt;longitud&gt; &lt;datos&gt;". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8961c8233ab6b06e8d912e780abde572"></a><!-- doxytag: member="dserver&#45;petic.c::petic_rseek" ref="a8961c8233ab6b06e8d912e780abde572" args="(int sockCliente, FILE *pFich, char *argOffset, char *argOrigen)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#a8961c8233ab6b06e8d912e780abde572">petic_rseek</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>pFich</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argOrigen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Modifica el indicador de posicion de fichero. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramname">pFich</td><td>puntero al fichero. </td></tr>
+    <tr><td class="paramname">argOffset</td><td>argumento indicando el offset a desplazar a partir del origen. </td></tr>
+    <tr><td class="paramname">argOrigen</td><td>argumento indicando la posicion de origen del desplazamiento. Debe ser uno de los tres valores definidos en stdio.h: <ul>
+<li>SEEK_SET para el inicio del fichero. </li>
+<li>SEEK_CUR para la posicion actual del fichero. </li>
+<li>SEEK_END para el final del fichero. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt; &lt;posicion actual&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adeb794bfa9b101da54747d54c8627af8"></a><!-- doxytag: member="dserver&#45;petic.c::petic_rwrite" ref="adeb794bfa9b101da54747d54c8627af8" args="(int sockCliente, FILE *pFich, char *argLong, void *datos, int modoAcceso)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#adeb794bfa9b101da54747d54c8627af8">petic_rwrite</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>pFich</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argLong</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>datos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>modoAcceso</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Escribe datos en el fichero. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>socket de comunicacion con el cliente. </td></tr>
+    <tr><td class="paramname">pFich</td><td>puntero al fichero. </td></tr>
+    <tr><td class="paramname">argLong</td><td>argumento indicando el numero de bytes a escribir. </td></tr>
+    <tr><td class="paramname">datos</td><td>buffer conteniendo los argLong datos a escribir en el fichero. </td></tr>
+    <tr><td class="paramname">modoAcceso</td><td>flag indicando si el acceso al fichero es de solo lectura o de lectura y escritura. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 = OK, -1 = Error. </dd>
+<dd>
+Respuesta al cliente: "&lt;errno&gt;\n". </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6f30664a67edce0329288b0d2b1c8c25"></a><!-- doxytag: member="dserver&#45;petic.c::peticiones" ref="a6f30664a67edce0329288b0d2b1c8c25" args="(int sockCliente, void *estado)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver-petic_8h.html#a6f30664a67edce0329288b0d2b1c8c25">peticiones</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>estado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Funcion de atencion de peticiones en el servidor. </p>
+<p>Se ejecuta en su propio hilo gracias a la funcion servidorGenerico(), la cual tambien se encarga de cerrar el socket de conexion. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>el descriptor del socket por el que se comunica con el cliente. </td></tr>
+    <tr><td class="paramname">estado</td><td>un indicador de estado del servidor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 si el servidor debe continuar su ejecucion. -1 si debe finalizar. </dd></dl>
+
+</div>
+</div>
+<hr/><h2>Documentación de las variables</h2>
+<a class="anchor" id="af5712f0e4f656c3a9e85c243534981d7"></a><!-- doxytag: member="dserver&#45;petic.c::gClusterIPs" ref="af5712f0e4f656c3a9e85c243534981d7" args="[][MAX_LEN_DIR]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="dserver_8c.html#a8c0b333914fd4f95e1819f7bf2769a19">gClusterIPs</a>[][<a class="el" href="dserver_8h.html#a732c15dfdbe1b1ab385fab1e8cdb5b07">MAX_LEN_DIR</a>]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Direcciones IP de los servidores pertenecientes al cluster. </p>
+
+</div>
+</div>
+<a class="anchor" id="a848dda2bcb7bf96bdaa18d45bb2f9723"></a><!-- doxytag: member="dserver&#45;petic.c::gClusterPuertos" ref="a848dda2bcb7bf96bdaa18d45bb2f9723" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver_8c.html#adf5a75fbdfa3e6e190a74812df23f227">gClusterPuertos</a>[]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Puertos de escucha de los servidores pertenecientes al cluster. </p>
+
+</div>
+</div>
+<a class="anchor" id="aff76d1f940ce6a4ee40298c693eb7563"></a><!-- doxytag: member="dserver&#45;petic.c::gNumCopia" ref="aff76d1f940ce6a4ee40298c693eb7563" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="dserver-petic_8c.html#aff76d1f940ce6a4ee40298c693eb7563">gNumCopia</a> = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Cuenta el numero de aperturas de un mismo fichero. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2efaa778ba62acc48f7b521c80a92a90"></a><!-- doxytag: member="dserver&#45;petic.c::gNumServers" ref="a2efaa778ba62acc48f7b521c80a92a90" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver_8c.html#a2efaa778ba62acc48f7b521c80a92a90">gNumServers</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Numero de entradas almacenadas en los arrays de informacion del cluster. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6146557e9c5bb3f2cc07d6dfc09f60d2"></a><!-- doxytag: member="dserver&#45;petic.c::gSemGlobales" ref="a6146557e9c5bb3f2cc07d6dfc09f60d2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSemaphore.html">Semaphore</a> <a class="el" href="dserver-petic_8c.html#a6146557e9c5bb3f2cc07d6dfc09f60d2">gSemGlobales</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Controla el acceso a variables globales. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Generado el Lunes, 24 de Marzo de 2014 15:08:03 para Shell distribu&iacute;da por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

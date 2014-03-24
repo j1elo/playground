@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Shell distribu&iacute;da: Referencia del Archivo dserver.h</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Shell distribu&iacute;da
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Generado por Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">'defines'</a> &#124;
+<a href="#typedef-members">'typedefs'</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo dserver.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Cabeceras del modulo de servidor distribuido para la creacion de un cluster de servidores.  
+<a href="#details">Más...</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver_8h.html#a8fe6caba00f9763abb69199d4218b358">MAXDATOS</a>&#160;&#160;&#160;5120</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer de 5KB para datos.  <a href="#a8fe6caba00f9763abb69199d4218b358"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver_8h.html#ae56a83809c4853d14f857e70f3174eb8">MAXCADENA</a>&#160;&#160;&#160;300</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">300B para paths, comandos, etc.  <a href="#ae56a83809c4853d14f857e70f3174eb8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver_8h.html#a685f4b8b94e7881ff495de334540bb89">MAXUSERS</a>&#160;&#160;&#160;5</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximos clientes simultaneos para el servidor.  <a href="#a685f4b8b94e7881ff495de334540bb89"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver_8h.html#ab1b3fba3abbef12154136948556519af">MAX_DIRS_CLUSTER</a>&#160;&#160;&#160;128</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximo numero de servidores que pueden formar un cluster.  <a href="#ab1b3fba3abbef12154136948556519af"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver_8h.html#a732c15dfdbe1b1ab385fab1e8cdb5b07">MAX_LEN_DIR</a>&#160;&#160;&#160;32</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Longitud de una direccion IP.  <a href="#a732c15dfdbe1b1ab385fab1e8cdb5b07"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+'typedefs'</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver_8h.html#a516991267b574382cc71ab442efda4ee">fserv_t</a> )(int sockCliente, void *estado)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de una funcion de servicio de las que usa <a class="el" href="dserver_8c.html#ad20aa1b970a1b3be20e92f0290e51927" title="Implementa un servidor distribuido.">servidorDistribuido()</a>.  <a href="#a516991267b574382cc71ab442efda4ee"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dserver_8h.html#ad20aa1b970a1b3be20e92f0290e51927">servidorDistribuido</a> (int puerto, int maxClientes, <a class="el" href="dserver_8h.html#a516991267b574382cc71ab442efda4ee">fserv_t</a> f, void *estado)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementa un servidor distribuido.  <a href="#ad20aa1b970a1b3be20e92f0290e51927"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Descripción detallada</h2>
+<div class="textblock"><p>Cabeceras del modulo de servidor distribuido para la creacion de un cluster de servidores. </p>
+<dl class="author"><dt><b>Autor:</b></dt><dd>Juan Navarro Moreno </dd>
+<dd>
+Antonio Gonzalez Huete </dd></dl>
+<dl class="date"><dt><b>Fecha:</b></dt><dd>27-11-2006 </dd></dl>
+</div><hr/><h2>Documentación de los 'defines'</h2>
+<a class="anchor" id="ab1b3fba3abbef12154136948556519af"></a><!-- doxytag: member="dserver.h::MAX_DIRS_CLUSTER" ref="ab1b3fba3abbef12154136948556519af" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver_8h.html#ab1b3fba3abbef12154136948556519af">MAX_DIRS_CLUSTER</a>&#160;&#160;&#160;128</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Maximo numero de servidores que pueden formar un cluster. </p>
+
+</div>
+</div>
+<a class="anchor" id="a732c15dfdbe1b1ab385fab1e8cdb5b07"></a><!-- doxytag: member="dserver.h::MAX_LEN_DIR" ref="a732c15dfdbe1b1ab385fab1e8cdb5b07" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver_8h.html#a732c15dfdbe1b1ab385fab1e8cdb5b07">MAX_LEN_DIR</a>&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Longitud de una direccion IP. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae56a83809c4853d14f857e70f3174eb8"></a><!-- doxytag: member="dserver.h::MAXCADENA" ref="ae56a83809c4853d14f857e70f3174eb8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver_8h.html#ae56a83809c4853d14f857e70f3174eb8">MAXCADENA</a>&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>300B para paths, comandos, etc. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8fe6caba00f9763abb69199d4218b358"></a><!-- doxytag: member="dserver.h::MAXDATOS" ref="a8fe6caba00f9763abb69199d4218b358" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver_8h.html#a8fe6caba00f9763abb69199d4218b358">MAXDATOS</a>&#160;&#160;&#160;5120</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Buffer de 5KB para datos. </p>
+
+</div>
+</div>
+<a class="anchor" id="a685f4b8b94e7881ff495de334540bb89"></a><!-- doxytag: member="dserver.h::MAXUSERS" ref="a685f4b8b94e7881ff495de334540bb89" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="dserver_8h.html#a685f4b8b94e7881ff495de334540bb89">MAXUSERS</a>&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Maximos clientes simultaneos para el servidor. </p>
+
+</div>
+</div>
+<hr/><h2>Documentación de los 'typedefs'</h2>
+<a class="anchor" id="a516991267b574382cc71ab442efda4ee"></a><!-- doxytag: member="dserver.h::fserv_t" ref="a516991267b574382cc71ab442efda4ee" args=")(int sockCliente, void *estado)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int(* <a class="el" href="dserver_8h.html#a516991267b574382cc71ab442efda4ee">fserv_t</a>)(int sockCliente, void *estado)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Tipo de una funcion de servicio de las que usa <a class="el" href="dserver_8c.html#ad20aa1b970a1b3be20e92f0290e51927" title="Implementa un servidor distribuido.">servidorDistribuido()</a>. </p>
+<p>Se ejecuta en su propio hilo, y debe llamar con cierta frecuencia a pthread_testcancel() para asegurarse de finalizar cuando el servidor se lo solicita. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockCliente</td><td>un socket abierto para comunicarse con el cliente. </td></tr>
+    <tr><td class="paramname">estado</td><td>el ultimo argumento proporcionado a servidorDistribuido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 si el servidor debe continuar, -1 si el servidor finaliza. </dd></dl>
+
+</div>
+</div>
+<hr/><h2>Documentación de las funciones</h2>
+<a class="anchor" id="ad20aa1b970a1b3be20e92f0290e51927"></a><!-- doxytag: member="dserver.h::servidorDistribuido" ref="ad20aa1b970a1b3be20e92f0290e51927" args="(int puerto, int maxClientes, fserv_t f, void *estado)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="dserver_8h.html#ad20aa1b970a1b3be20e92f0290e51927">servidorDistribuido</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>puerto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="dserver_8h.html#a516991267b574382cc71ab442efda4ee">fserv_t</a>&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>estado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implementa un servidor distribuido. </p>
+<p>Este servidor intenta unirse a un cluster de servidores ya existentes, si se le proporciona la direccion IP y el puerto de uno de ellos. </p>
+<dl class="params"><dt><b>Parámetros:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">puerto</td><td>numero de puerto local para escuchar conexiones. </td></tr>
+    <tr><td class="paramname">maxClientes</td><td>numero maximo de clientes a atender. </td></tr>
+    <tr><td class="paramname">f</td><td>funcion de servicio a usar. </td></tr>
+    <tr><td class="paramname">estado</td><td>informacion de estado que pasarle a esa funcion de servicio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Devuelve:</b></dt><dd>0 si salida a peticion del usuario, -1 si salida por otra causa. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Generado el Lunes, 24 de Marzo de 2014 15:08:03 para Shell distribu&iacute;da por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>
