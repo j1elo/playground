@@ -1,0 +1,72 @@
+# ============
+# Source:
+# https://github.com/github/gitignore/blob/master/Qt.gitignore
+# ============
+
+# C++ objects and libs
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+
+# Qt
+.qmake.cache
+.qmake.stash
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*-build-*
+
+# QtCreator
+*.autosave
+*.qmlproject.user
+*.qmlproject.user.*
+
+
+# ============
+# Source:
+# http://qt.gitorious.org/qt-mobility/contacts/blobs/master/.gitignore
+# ============
+
+.DS_Store
+.obj
+*.moc
+Makefile*
+*.dylib
+*.so.*
+*.so
+*.so.debug
+*.o
+*~
+.cd.rc
+*.swp
+core
+moc_*.cpp
+*.Debug
+*.Release
+*.pdb
+*.idb
+*.ib_pdb_index
+.qmake.cache
+
+# Visual Studio
+*.sln
+*.vcproj
+*.suo
+*.ncb
+*.user
+
+# Failed patch
+*.orig
+*.rej

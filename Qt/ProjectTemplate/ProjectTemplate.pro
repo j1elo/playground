@@ -3,23 +3,23 @@
 #====================================================================
 
 # Build configuration
-#TARGET = target # If not defined: same as the file name
+#TARGET = target # If not defined: same name as this file
 TEMPLATE = app
-#CONFIG *= # By default: qt thread
-#QT *= # By default: core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
+#CONFIG += # By default: qt thread
+#QT += # By default: core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # Build locations
-DESTDIR = .
+DESTDIR = bin
 MOC_DIR = tmp
 OBJECTS_DIR = $$MOC_DIR
 RCC_DIR = $$MOC_DIR
 UI_DIR = $$MOC_DIR
-unix: QMAKE_DISTCLEAN *= -r $$MOC_DIR
+unix: QMAKE_DISTCLEAN += -r $$MOC_DIR
 
 # Additional configuration
-#DEFINES *= MY_CODE=1
-#DEFINES *= MY_TEXT=\\\"This is my text\\\"
+#DEFINES += MY_CODE=1
+#DEFINES += MY_TEXT=\\\"Dummy text\\\"
 include(compiler.pri) # Compiler configuration
 
 
@@ -30,21 +30,21 @@ include(compiler.pri) # Compiler configuration
 
 # ---- Project dependencies ----
 
-#LIBS *= -Lsome/path -lsomelib
+#LIBS += -Lsome/path -lsomelib
 
 
 # ---- Project source files ----
 
-INCLUDEPATH *= .
+INCLUDEPATH += .
 
-DEPENDPATH *= .
+DEPENDPATH += .
 
-HEADERS *= \
-    MyWidget.h
+SOURCES += src/main.cpp \
+    src/MainWindow.cpp
 
-SOURCES *= main.cpp \
-    MyWidget.cpp
+HEADERS += \
+    src/MainWindow.h
 
-#FORMS *= MyForm.ui
-#RESOURCES *= resources.qrc
-#OTHER_FILES *= readme.txt
+FORMS += src/MainWindow.ui
+#RESOURCES += images.qrc
+#OTHER_FILES += readme.txt

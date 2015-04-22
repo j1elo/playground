@@ -1,10 +1,13 @@
 *g++* {
-    # Enable support for C++11 language revision
-    QMAKE_CXXFLAGS *= -std=c++0x
+    # Enable support for C++11 / C++14
+    greaterThan(QT_MAJOR_VERSION, 4) {
+        CONFIG *= c++11 c++14
+    } else {
+        QMAKE_CXXFLAGS *= -std=c++0x
+    }
 
-    # Disable some warnings, make all the others into errors
-    QMAKE_CXXFLAGS *= -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-unused-but-set-variable
-    #QMAKE_CXXFLAGS *= -Werror
+    # Enable all opt-in warnings, and make all warnings into errors
+    QMAKE_CXXFLAGS *= -Wall -Wextra -Werror
 
     # Include debug symbols in Release builds
     QMAKE_CFLAGS_RELEASE   *= -g
